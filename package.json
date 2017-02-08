@@ -1,0 +1,9 @@
+{
+  "name": "bluejeans-api-event-onvideo",
+  "version": "1.0.0",
+  "dependencies": {
+    "myclass": "^1.0.2",
+    "sockjs-client": "^1.1.2",
+    "underscore": "^1.8.3"
+  }
+}
