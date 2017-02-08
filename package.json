@@ -1,5 +1,5 @@
 {
-  "name": "bluejeans-api-event-onvideo",
+  "name": "bluejeans-api-events-onvideo",
   "version": "1.0.0",
   "dependencies": {
     "myclass": "^1.0.2",
