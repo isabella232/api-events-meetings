@@ -65,7 +65,7 @@ Here is a sample event for meeting 111222333 where a guest joins.
 node event-service.js <partition> <numeric_meeting_id> <user_id> <access_token>
 ```
 
-Partition is something like z1, z2, etc.
-Numeric meeting ID is the end user facing ID for the meeting.
-User ID is the integer of the user attempting to connect.
-Access Token should be valid to access the meeting.
+* Partition is something like z1, z2, etc.
+* Numeric meeting ID is the end user facing ID for the meeting.
+* User ID is the integer of the user attempting to connect.
+* Access Token should be valid to access the meeting. You must use a password grant or meeting_passcode grant.
