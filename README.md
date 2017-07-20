@@ -69,3 +69,38 @@ node event-service.js <partition> <numeric_meeting_id> <user_id> <access_token>
 * Numeric meeting ID is the end user facing ID for the meeting.
 * User ID is the integer of the user attempting to connect.
 * Access Token should be valid to access the meeting. You must use a password grant or meeting_passcode grant.
+
+# Data
+* m - meetingid
+* n - name
+* C1 - CallQuality
+* L1 - Leader
+* c - callguid
+* e - endpoint
+* T - TalkDetected
+* C2 - CurrentPresenter
+* S1 - SecureCall
+* L2 - Layout
+* S2 - SubLayout
+* V1 - VideoRecv
+* V2 - VideoRecvLocalMute
+* V3 - VideoRecvRemoteMute
+* A1 - AudioRecv
+* A2 - AudioRecvLocalMute
+* A3 - AudioRecvRemoteMute
+* a - alerts
+* A4 - AudioRecvCodec
+* A5 - AudioSendCodec
+* V4 - VideoRecvCodec
+* V5 - VideoRecvHeight
+* V6 - VideoRecvWidth
+* V7 - VideoSendCodec
+* V8 - VideoSendHeight
+* V9 - VideoSendWidth
+* C3 - ContentRecvHeight
+* C4 - ContentRecvWidth      
+* ch - chatEndpointGuid
+* t - type
+* v - visibility
+* P1 - PinnedGuid
+* E1 - endpointGuid
