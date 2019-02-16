@@ -1,80 +1,18 @@
-# api-events-onvideo
-
-------
-
-This package enables an application to receive asynchronous events associated with a BlueJeans meeting.  Events are useful for triggering responses in applications as a result of some change in a meeting.  For example, a meeting ending can trigger an application to update billing.
-
-This api-events-onvideo package contains these examples and information:
-
-- Javascript-based reference application for connecting into the events associated with an active BlueJeans meeting
-- Sample Javascript command-line invocation to connect to a given meeting and receive the events.
-- Documentation describing the format of the events messages sent from the BlueJeans Event Service in the cloud.
+# BlueJeans Meeting Events SDK's
 
 
+
+![927](.\927.png)
 
 ## Introduction
 
-BlueJeans meeting clients are kept up to date by an Event Service in the cloud. This service publishes events related to the meeting, and the events describe conditions like who joined, who left, who muted, who unmuted, and more.
-
-This package encapsulates a event listener into a Javascript object called **EventService().**   The object connects to the cloud-service and receives asynchronous events over a websocket.  Information describing the nature of the event is transmitted from the cloud using a JSON-formatted payload.
-
-### Requirements
-
-To engage an EventService() object, your application environment must first establish these conditions:
-
-1. The meeting from which you are going to receive events must be already running, and you must know its **numeric meeting id**
-
-2. BlueJeans infrastructure consists of service *partitions*.  User accounts are mapped to a partition, and any meeting they schedule will be hosted on the user's partition. You need to know the **partition string name** where your meeting is running.   To determine the meeting's partition name, you must look at the scheduler's profile to see what partition their account maps to.  Partitions are usually named "z1", "z2", and so on.
-
-3. The numeric **user id** for the owner of the meeting.
-
-4. Lastly, you will need a **meeting access token** which allows your application to make API calls to receive events.  Note the meeting access token is different from the application access token.  You generate this meeting access token through making the OAuth authentication API
-
-   ```Javascript
-   oauth2/token?Meeting
-   ```
-
-------
-
-
-
-## Running the EventService
-
-To run the sample reference application, you will need to have installed NodeJS and the npm package manager.
-
-### Install the EventService Package
-
-Download the package files onto your computer and then run the install command to make sure that all required modules are loaded onto your computer.
-
-```javascrpt
-npm install
-```
-
-
-
-### Run the EventService Reference Application
-
-Once the package installation is complete, you invoke the EventService through this command line
-
-```javascript
-node event-service.js <partition> <numeric_meeting_id> <user_id> <access_token>
-```
-
-So for example if you want to look at John Smith's meeting, 111222333.  Through the get user API, you can find out that John Smith's user id number is 1407819, and the name of his partition is "z4".  Finally, you make the API call to get the meeting access token, "29e15df1eef14b2ca401e778d7a950c8@z4".  (Use the Meeting Grant Type authentication)
-
-Your command line would be:
-
-```javascript
-node event-service.js z4 111222333 1407819 29e15df1eef14b2ca401e778d7a950c8@z4
-```
-
-------
+BlueJeans meetings sends realtime updates on the status of participants and the connections.  This data is sent over a Websocket, and the SDK's here provide application developers with simple modules to access this realtime data.
 
 
 
 ## About Event Data...
 
-The EventService returns information asynchronously using JSON data objects.  Since events can happen rather quickly, the JSON object uses very short field names.
+The meeting event sends to a listener information asynchronously using JSON data objects.  Since events can happen rather quickly, the JSON object uses very short field names.
 
 
 
