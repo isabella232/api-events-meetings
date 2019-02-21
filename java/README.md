@@ -132,38 +132,43 @@ Here is a sample JSON event record for when a guest joins meeting "111222333".
 
 The following list gives the functional meaning of the short JSON field names.
 
+* "A1": Boolean, if audio is being sent by client at all
+* "A2": Boolean, if client is audio local muted
+* "A3": Boolean, if client is audio remote muted
+* "A4": String, audio codec used by client to send
+* "A5": String, audio codec used by server to send
+* "C1": Integer from 1-5, current call quality of client
+* "C2": String, the callguid of the client who's currently presenting. Null if no one is presenting.
+* "C3": Integer, the height of content being sent by this client
+* "C4": Integer, the width of content being sent by this client
+* "C5":  Array, a list of physical connections that this participant represents. More details later.
+* "E1": String, the participant guid of this participant
+* "L1": Boolean, if this participant is a moderator
+* "L2": Integer, 4 if the client's main stream is just video, 2 if the client is receiving content and video in the same stream (non-dual-stream content)
+* "P1": String, callguid of the participant whose video is pinned for this participant
+* "R1": String, remote desktop version
+* "R2": Boolean, can this client be a RDC controller
+* "R3": Boolean, can this client be a RDC controllee
+* "S1": Boolean, is this call secure, i.e. encrypted
+* "S2": Integer, which video layout the client is using. See reference below.
+* "T": Boolean, are we detecting talking from this client
+* "V1": Boolean, if video is being sent by client at all
+* "V2": Boolean, if client is video local muted
+* "V3": Boolean, if client is video remote muted
+* "V4": String, video codec used by client to send
+* "V5": Integer, the height of video being sent by this client
+* "V6": Integer, the width of video being sent by this client
+* "V7": String, video codec used by server to send
+* "V8": Integer, the height of video being received by this client
+* "V9":Integer, the width of video being received by this client
+* "a": Array, list of alerts for this client. More on this later.
+* "c": String, the callguid of this participant
+* "ch": String, the chatguid of this participant
+* "crp": Dictionary, arbitrary metadata attached to this participant by any client
+* "e": String, the type of this endpoint, e.g Carmel, Blue, WebRTC, Room System, etc.
+* "m": String, the meeting id of this meeting
+* "n": String, the name of this participant
+* "r": Boolean, is this endpoint being remote desktop controlled
+* "t": String, always "endpoint" for some reason
+* "v": Boolean, should this participant be visible in the roster. Internal entries like the meeting recorder and cascade legs are invisible.
 
-
-* m - meetingid
-* n - name
-* C1 - CallQuality
-* L1 - Leader
-* c - callguid
-* e - endpoint
-* T - TalkDetected
-* C2 - CurrentPresenter
-* S1 - SecureCall
-* L2 - Layout
-* S2 - SubLayout
-* V1 - VideoRecv
-* V2 - VideoRecvLocalMute
-* V3 - VideoRecvRemoteMute
-* A1 - AudioRecv
-* A2 - AudioRecvLocalMute
-* A3 - AudioRecvRemoteMute
-* a - alerts
-* A4 - AudioRecvCodec
-* A5 - AudioSendCodec
-* V4 - VideoRecvCodec
-* V5 - VideoRecvHeight
-* V6 - VideoRecvWidth
-* V7 - VideoSendCodec
-* V8 - VideoSendHeight
-* V9 - VideoSendWidth
-* C3 - ContentRecvHeight
-* C4 - ContentRecvWidth      
-* ch - chatEndpointGuid
-* t - type
-* v - visibility
-* P1 - PinnedGuid
-* E1 - endpointGuid
